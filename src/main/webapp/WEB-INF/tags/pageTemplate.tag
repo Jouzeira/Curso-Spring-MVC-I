@@ -1,6 +1,8 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ attribute name="titulo" required="true" %>
 <%@ attribute name="bodyClass" required="false" %>
+<%@ attribute name="extraScripts" fragment="true" %>
+
 <!DOCTYPE html>
 <html>
 <head>
