@@ -33,8 +33,8 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="${s:mvcUrl('PC#listar').build()}">Lista de Produtos</a></li>
-        <li><a href="${s:mvcUrl('PC#form').build()}">Cadastro de Produtos</a></li>
+        <li><a href="${s:mvcUrl('PC#listar').build() }" rel="nofollow">Listagem de Produtos</a></li>
+    	<li><a href="${s:mvcUrl('PC#form').build() }" rel="nofollow">Cadastro de Produtos</a></li>
     </ul>
     </div><!-- /.navbar-collapse -->
   </div>
