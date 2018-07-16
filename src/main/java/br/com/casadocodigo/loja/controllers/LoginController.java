@@ -9,6 +9,7 @@ public class LoginController {
 
     @RequestMapping(value="/login", method=RequestMethod.GET)
     public String loginForm(){
+    	System.out.println("Passei no LoginController - loginForm");
         return "loginForm";
     }
 
