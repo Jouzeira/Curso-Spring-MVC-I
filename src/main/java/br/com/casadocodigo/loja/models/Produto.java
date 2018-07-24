@@ -1,6 +1,8 @@
 package br.com.casadocodigo.loja.models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -13,7 +15,9 @@ import javax.persistence.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-public class Produto {
+public class Produto implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -21,7 +25,7 @@ public class Produto {
 	private String descricao;
 	private int paginas;
 	@ElementCollection
-	private List<Preco> precos;
+	private List<Preco> precos = new ArrayList<>();
 	@DateTimeFormat
 	private Calendar dataLancamento;
 	private String sumarioPath;
@@ -99,5 +103,5 @@ public class Produto {
 	public BigDecimal precoPara(TipoPreco tipoPreco) {
 	    return precos.stream().filter(preco -> preco.getTipo().equals(tipoPreco)).findFirst().get().getValor();        
 	}
-
+	
 }
