@@ -25,7 +25,7 @@ public class Preco {
 	
 	@Override
 	public String toString() {
-		return "Preco [valor=" + valor + ", tipo=" + tipo + "]";
+		return this.tipo.name() + " - " + this.valor;
 	}
 
 }
