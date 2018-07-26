@@ -15,8 +15,8 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 @Profile("prod")
 public class JPAProductionConfiguration {
 	
-	@Autowired
 	//org.springframework.core.env.Environment
+	@Autowired
 	private Environment environment;
 
 	@Bean
