@@ -1,5 +1,6 @@
 package br.com.casadocodigo.loja.conf;
 
+
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
