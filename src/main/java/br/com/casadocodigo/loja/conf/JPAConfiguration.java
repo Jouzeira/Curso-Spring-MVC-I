@@ -32,26 +32,26 @@ public class JPAConfiguration {
 	}
 	
 	
-	@Bean
-	@Profile("dev")
-	public Properties aditionalProperties(){
-		Properties props = new Properties();
-		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-		props.setProperty("hibernate.show_sql", "true");
-		props.setProperty("hibernate.hbm2ddl.auto", "update");
-		return props;
-	}
-	
-	@Bean
-    @Profile("dev")
-	public DataSource dataSource(){
-	    DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	    dataSource.setUsername("root");
-	    dataSource.setPassword("admin");
-	    dataSource.setUrl("jdbc:mysql://localhost:3306/casadocodigo");
-	    dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-	    return dataSource;
-	}
+//	@Bean
+//	@Profile("dev")
+//	public Properties aditionalProperties(){
+//		Properties props = new Properties();
+//		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+//		props.setProperty("hibernate.show_sql", "true");
+//		props.setProperty("hibernate.hbm2ddl.auto", "update");
+//		return props;
+//	}
+//	
+//	@Bean
+//    @Profile("dev")
+//	public DataSource dataSource(){
+//	    DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//	    dataSource.setUsername("root");
+//	    dataSource.setPassword("admin");
+//	    dataSource.setUrl("jdbc:mysql://localhost:3306/casadocodigo");
+//	    dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//	    return dataSource;
+//	}
 
 	@Bean
 	public JpaTransactionManager transactionManager(EntityManagerFactory emf){
