@@ -18,23 +18,23 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class JPAConfiguration {
 	
 	@Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
-		
-        LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-        
-        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        factoryBean.setJpaVendorAdapter(vendorAdapter);
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Properties additionalProperties) {
+	    LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
+	  factoryBean.setPackagesToScan("br.com.casadocodigo.loja.models");
+	  factoryBean.setDataSource(dataSource);
 
-        factoryBean.setPackagesToScan("br.com.casadocodigo.loja.models");
-        
-        factoryBean.setDataSource(dataSource);
-        factoryBean.setJpaProperties(aditionalProperties());
+	  JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+	  factoryBean.setJpaVendorAdapter(vendorAdapter);
 
-        return factoryBean;
-    }
+	  factoryBean.setJpaProperties(additionalProperties);
+
+	  return factoryBean;
+	}
 	
 	
-	private Properties aditionalProperties(){
+	@Bean
+	@Profile("dev")
+	public Properties aditionalProperties(){
 		Properties props = new Properties();
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		props.setProperty("hibernate.show_sql", "true");
